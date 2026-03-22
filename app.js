@@ -13,10 +13,7 @@ app.get('/', (req, res) => {
   res.send("📚 Book API is running 🚀");
 });
 
-
-// =====================
 // GET ALL BOOKS
-// =====================
 app.get('/books', (req, res) => {
   res.status(200).json({
     status: "success",
@@ -26,9 +23,7 @@ app.get('/books', (req, res) => {
 });
 
 
-// =====================
 // GET BOOK BY ID
-// =====================
 app.get('/books/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const book = books.find(b => b.id === id);
@@ -47,9 +42,8 @@ app.get('/books/:id', (req, res) => {
 });
 
 
-// =====================
+
 // CREATE BOOK
-// =====================
 app.post('/books', (req, res) => {
   const { title, author } = req.body;
 
@@ -76,9 +70,7 @@ app.post('/books', (req, res) => {
 });
 
 
-// =====================
 // UPDATE BOOK
-// =====================
 app.put('/books/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const { title, author } = req.body;
@@ -103,9 +95,7 @@ app.put('/books/:id', (req, res) => {
 });
 
 
-// =====================
 // DELETE BOOK
-// =====================
 app.delete('/books/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const index = books.findIndex(b => b.id === id);
